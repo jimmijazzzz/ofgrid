@@ -76,7 +76,7 @@ const ContactSection = () => {
             )}
 
             <form 
-              action="https://formspree.io/f/xayz1234" 
+              action="https://formspree.io/f/meozwwok" 
               method="POST"
               onSubmit={handleSubmit} 
               className="space-y-6"
