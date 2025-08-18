@@ -26,8 +26,10 @@ const ContactSection = () => {
               method="POST"
               className="space-y-6"
             >
-              {/* Ukryte pole - e-maile będą wysyłane na Twój adres */}
+              {/* Ukryte pola dla Formspree */}
               <input type="hidden" name="_replyto" value="twojoffgrid@gmail.com" />
+              <input type="hidden" name="_subject" value="Nowe zapytanie z formularza kontaktowego" />
+              <input type="hidden" name="_captcha" value="false" />
               
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
