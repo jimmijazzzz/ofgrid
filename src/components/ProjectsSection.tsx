@@ -34,15 +34,15 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-16 text-[#1A1D2E]">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16 text-[#1A1D2E]">
           Nasze Realizacje
         </h1>
 
         {/* Karuzela */}
         <div className="relative mb-12">
-          <div className="relative overflow-hidden w-[940px] h-[788px] mx-auto">
+          <div className="relative overflow-hidden w-full max-w-[940px] h-[300px] sm:h-[400px] md:h-[600px] lg:h-[788px] mx-auto">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -52,13 +52,13 @@ const ProjectsSection = () => {
                   <img 
                     src={project.image} 
                     alt="Realizacja projektu"
-                    className="w-full h-full"
+                    className="w-full h-full object-contain"
                   />
                   <button
                     onClick={() => setLightboxImage(project.image)}
-                    className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+                    className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/50 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-colors"
                   >
-                    <Eye className="h-5 w-5" />
+                    <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
                   </button>
 
                 </div>
@@ -69,15 +69,15 @@ const ProjectsSection = () => {
           {/* Nawigacja */}
           <button 
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-colors"
+            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-1.5 sm:p-2 rounded-full shadow-lg transition-colors"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-colors"
+            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 p-1.5 sm:p-2 rounded-full shadow-lg transition-colors"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
 
           {/* Wskaźniki */}
