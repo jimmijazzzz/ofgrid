@@ -27,7 +27,7 @@ const ContactSection = () => {
               className="space-y-6"
             >
               {/* Ukryte pole - e-maile będą wysyłane na Twój adres */}
-              <input type="hidden" name="_replyto" value="kontakt@twojoffgrid.org" />
+              <input type="hidden" name="_replyto" value="twojoffgrid@gmail.com" />
               
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

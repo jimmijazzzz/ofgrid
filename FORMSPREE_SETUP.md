@@ -4,14 +4,14 @@
 **Formspree** to darmowy serwis, który automatycznie obsługuje formularze kontaktowe i wysyła e-maile na Twój adres. **Nie wymaga żadnej konfiguracji backendu!**
 
 ## ✅ Co zostało skonfigurowane:
-- Formularz używa teraz `action="https://formspree.io/f/xayz1234"`
-- E-maile będą automatycznie wysyłane na `kontakt@twojoffgrid.org`
+- Formularz używa teraz `action="https://formspree.io/f/meozwwok"`
+- E-maile będą automatycznie wysyłane na `twojoffgrid@gmail.com`
 - **Wszystko działa od razu** po wdrożeniu na Netlify
 
 ## 🚀 Jak to działa:
 1. **Użytkownik wypełnia formularz** na Twojej stronie
 2. **Formspree odbiera dane** automatycznie
-3. **E-mail jest wysyłany** na `kontakt@twojoffgrid.org`
+3. **E-mail jest wysyłany** na `twojoffgrid@gmail.com`
 4. **Ty otrzymujesz wiadomość** w swojej skrzynce
 
 ## 📧 Co zawiera e-mail:
@@ -45,7 +45,7 @@
 1. Wdróż stronę na Netlify
 2. Przejdź do sekcji kontaktowej
 3. Wypełnij i wyślij formularz
-4. Sprawdź czy e-mail przyszedł na `kontakt@twojoffgrid.org`
+4. Sprawdź czy e-mail przyszedł na `twojoffgrid@gmail.com`
 
 ## 🆘 Jeśli coś nie działa:
 - **Sprawdź czy URL formularza** jest poprawny
