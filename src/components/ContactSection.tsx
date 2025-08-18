@@ -11,18 +11,32 @@ const ContactSection = () => {
     consent: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Tu byłaby logika wysyłania formularza
-    alert('Dziękujemy za wiadomość! Skontaktujemy się z Państwem w ciągu 24h.');
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      subject: '',
-      message: '',
-      consent: false
-    });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Formspree automatycznie obsłuży wysyłanie
+      // Formularz zostanie wysłany przez atrybut action
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        subject: '',
+        message: '',
+        consent: false
+      });
+    } catch (error) {
+      console.error('Błąd podczas wysyłania formularza:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -44,7 +58,32 @@ const ContactSection = () => {
           {/* Formularz */}
           <div className="bg-white p-8 rounded-xl shadow-md">
             <h2 className="text-2xl font-bold mb-6 text-[#1A1D2E]">Wyślij zapytanie</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            
+            {/* Komunikat o sukcesie */}
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                <p className="font-semibold">Dziękujemy za wiadomość!</p>
+                <p>Skontaktujemy się z Państwem w ciągu 24h na podany adres e-mail.</p>
+              </div>
+            )}
+
+            {/* Komunikat o błędzie */}
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                <p className="font-semibold">Wystąpił błąd podczas wysyłania.</p>
+                <p>Spróbuj ponownie lub skontaktuj się telefonicznie.</p>
+              </div>
+            )}
+
+            <form 
+              action="https://formspree.io/f/xayz1234" 
+              method="POST"
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              {/* Ukryte pole - e-maile będą wysyłane na Twój adres */}
+              <input type="hidden" name="_replyto" value="kontakt@twojoffgrid.org" />
+              
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Imię i nazwisko *
@@ -142,11 +181,20 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                disabled={!formData.consent}
+                disabled={!formData.consent || isSubmitting}
                 className="w-full bg-green-500 hover:bg-green-600 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center"
               >
-                <Send className="h-5 w-5 mr-2" />
-                Wyślij wiadomość
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Wysyłanie...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-5 w-5 mr-2" />
+                    Wyślij wiadomość
+                  </>
+                )}
               </button>
             </form>
           </div>
