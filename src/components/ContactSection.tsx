@@ -1,50 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    subject: '',
-    message: '',
-    consent: false
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      // Formspree automatycznie obsłuży wysyłanie
-      // Formularz zostanie wysłany przez atrybut action
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        subject: '',
-        message: '',
-        consent: false
-      });
-    } catch (error) {
-      console.error('Błąd podczas wysyłania formularza:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+  const handleConsentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+    if (submitButton) {
+      submitButton.disabled = !e.target.checked;
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
-    }));
   };
 
   return (
@@ -59,26 +21,9 @@ const ContactSection = () => {
           <div className="bg-white p-8 rounded-xl shadow-md">
             <h2 className="text-2xl font-bold mb-6 text-[#1A1D2E]">Wyślij zapytanie</h2>
             
-            {/* Komunikat o sukcesie */}
-            {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                <p className="font-semibold">Dziękujemy za wiadomość!</p>
-                <p>Skontaktujemy się z Państwem w ciągu 24h na podany adres e-mail.</p>
-              </div>
-            )}
-
-            {/* Komunikat o błędzie */}
-            {submitStatus === 'error' && (
-              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                <p className="font-semibold">Wystąpił błąd podczas wysyłania.</p>
-                <p>Spróbuj ponownie lub skontaktuj się telefonicznie.</p>
-              </div>
-            )}
-
             <form 
               action="https://formspree.io/f/meozwwok" 
               method="POST"
-              onSubmit={handleSubmit} 
               className="space-y-6"
             >
               {/* Ukryte pole - e-maile będą wysyłane na Twój adres */}
@@ -92,8 +37,6 @@ const ContactSection = () => {
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
@@ -108,8 +51,6 @@ const ContactSection = () => {
                     type="tel"
                     id="phone"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
                     required
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   />
@@ -122,8 +63,6 @@ const ContactSection = () => {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
                     required
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   />
@@ -137,8 +76,6 @@ const ContactSection = () => {
                 <select
                   id="subject"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 >
                   <option value="">Wybierz temat</option>
@@ -156,8 +93,6 @@ const ContactSection = () => {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   rows={4}
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-vertical"
                   placeholder="Opisz swoje potrzeby i oczekiwania..."
@@ -169,8 +104,7 @@ const ContactSection = () => {
                   type="checkbox"
                   id="consent"
                   name="consent"
-                  checked={formData.consent}
-                  onChange={handleChange}
+                  onChange={handleConsentChange}
                   required
                   className="mt-1 mr-3"
                 />
@@ -180,21 +114,13 @@ const ContactSection = () => {
               </div>
 
               <button
+                id="submit-button"
                 type="submit"
-                disabled={!formData.consent || isSubmitting}
+                disabled={true}
                 className="w-full bg-green-500 hover:bg-green-600 disabled:bg-gray-400 text-white py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Wysyłanie...
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-5 w-5 mr-2" />
-                    Wyślij wiadomość
-                  </>
-                )}
+                <Send className="h-5 w-5 mr-2" />
+                Wyślij wiadomość
               </button>
             </form>
           </div>
