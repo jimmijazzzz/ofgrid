@@ -1,5 +1,5 @@
-import React from 'react';
-import { Wind, Facebook, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+
+import { Wind, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 text-green-500" />
-                <span>kontakt@twoj-offgrid.pl</span>
+                <span>kontakt@twoj-offgrid.org</span>
               </div>
             </div>
           </div>
@@ -93,31 +93,7 @@ const Footer = () => {
               <p>NIP: 5671807063</p>
               <p>ul. Stefana Batorego 18/108, 02-591 Warszawa</p>
             </div>
-            
-            <h4 className="font-semibold mb-3">Śledź nas</h4>
-            <div className="flex space-x-3">
-              <a 
-                href="#" 
-                className="bg-gray-700 hover:bg-green-500 p-2 rounded-lg transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="bg-gray-700 hover:bg-green-500 p-2 rounded-lg transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="#" 
-                className="bg-gray-700 hover:bg-green-500 p-2 rounded-lg transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
+
           </div>
         </div>
 
