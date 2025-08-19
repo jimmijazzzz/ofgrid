@@ -131,8 +131,8 @@ const ContactSection = () => {
           <div className="space-y-8">
             <div className="relative h-64 rounded-xl overflow-hidden">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d21.12345678901234!3d52.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDA3JzM0LjQiTiAyMcKwMDcnMzQuNCJF!5e0!3m2!1spl!2spl!4v1234567890123"
-                title="Lokalizacja TWÓJ OFF-GRID"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.7896543210123!2d21.0123456789!3d52.1987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3ba!2sStefana%20Batorego%2018%2C%2002-591%20Warszawa!5e0!3m2!1spl!2spl!4v1645123456789"
+                title="Lokalizacja TWÓJ OFF-GRID - ul. Stefana Batorego 18, Warszawa"
                 className="w-full h-full border-0"
                 allowFullScreen
                 loading="lazy"
@@ -153,7 +153,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-green-500 mr-3" />
-                  <span>kontakt@twoj-offgrid.pl</span>
+                  <span>kontakt@twoj-offgrid.org</span>
                 </div>
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-green-500 mr-3 mt-1" />
@@ -171,7 +171,7 @@ const ContactSection = () => {
                 Umów się na darmową konsultację i wycenę systemu energetycznego dla Twojego domu.
               </p>
               <p className="text-sm opacity-90">
-                Czas odpowiedzi: do 24h • Wycena: bezpłatna • Dojazd: w promieniu 50km od Warszawy
+              Odpowiedź w ciągu 24h • Bezpłatna wycena • Indywidualne podejście
               </p>
             </div>
           </div>
