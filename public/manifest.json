@@ -1,0 +1,27 @@
+{
+  "name": "Energia Odnawialna - Projekty i Dotacje",
+  "short_name": "TwojOffGrid",
+  "description": "Specjalizujemy się w projektach energii odnawialnej - wiatrowej i słonecznej",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "pl",
+  "dir": "ltr"
+}
