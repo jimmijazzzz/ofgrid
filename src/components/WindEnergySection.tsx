@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wind, Battery, Home, Shield, Zap, Settings } from 'lucide-react';
+import { Wind, Battery, Home, Shield, Zap, Settings, Heart } from 'lucide-react';
 
 const WindEnergySection = () => {
   const scrollToSection = (id: string) => {
@@ -76,17 +76,29 @@ const WindEnergySection = () => {
 
         {/* Dlaczego warto */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#1A1D2E]">Dlaczego warto?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition-shadow">
-                <div className="flex justify-center mb-4 text-green-500">
-                  {benefit.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-[#1A1D2E]">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm">{benefit.description}</p>
+          <h2 className="text-3xl font-bold text-center mb-12 text-[#1A1D2E]">Dlaczego warto wybrać nas?</h2>
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div className="flex justify-center mb-4 text-green-500">
+                <Shield className="h-12 w-12" />
               </div>
-            ))}
+              <h3 className="text-xl font-bold mb-3 text-[#1A1D2E]">Doświadczenie, na którym możesz polegać</h3>
+              <p className="text-gray-600">Wieloletnie doświadczenie w projektowaniu i montażu systemów energii wiatrowej</p>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div className="flex justify-center mb-4 text-green-500">
+                <Settings className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#1A1D2E]">Projekty dopasowane do Twoich potrzeb</h3>
+              <p className="text-gray-600">Indywidualne podejście i dopasowanie systemu do specyfiki Twojej lokalizacji</p>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-lg text-center hover:shadow-lg transition-shadow">
+              <div className="flex justify-center mb-4 text-green-500">
+                <Heart className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#1A1D2E]">Satysfakcja klienta zawsze na pierwszym miejscu</h3>
+              <p className="text-gray-600">Twoja satysfakcja i bezpieczeństwo to nasze priorytety</p>
+            </div>
           </div>
         </div>
 

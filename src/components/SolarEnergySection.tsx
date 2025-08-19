@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Zap, Home, TrendingDown, Shield, Clock, Wrench, Battery } from 'lucide-react';
+import { Sun, Zap, Home, TrendingDown, Shield, Clock, Wrench, Battery, Settings, Heart } from 'lucide-react';
 
 const SolarEnergySection = () => {
   const scrollToSection = (id: string) => {
@@ -103,18 +103,27 @@ const SolarEnergySection = () => {
         {/* Dlaczego my */}
         <div className="bg-white p-8 rounded-xl shadow-md text-center">
           <h2 className="text-2xl font-bold mb-6 text-[#1A1D2E]">Dlaczego warto wybrać nas?</h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-500 mb-2">15+</div>
-              <p className="text-gray-600">lat doświadczenia</p>
+              <div className="flex justify-center mb-4 text-green-500">
+                <Shield className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#1A1D2E]">Doświadczenie, na którym możesz polegać</h3>
+              <p className="text-gray-600">Wieloletnie doświadczenie w projektowaniu i montażu systemów fotowoltaicznych</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-500 mb-2">500+</div>
-              <p className="text-gray-600">zrealizowanych projektów</p>
+              <div className="flex justify-center mb-4 text-green-500">
+                <Settings className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#1A1D2E]">Projekty dopasowane do Twoich potrzeb</h3>
+              <p className="text-gray-600">Indywidualne podejście i dopasowanie systemu do specyfiki Twojego domu</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-500 mb-2">25</div>
-              <p className="text-gray-600">lat gwarancji na panele</p>
+              <div className="flex justify-center mb-4 text-green-500">
+                <Heart className="h-12 w-12" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-[#1A1D2E]">Satysfakcja klienta zawsze na pierwszym miejscu</h3>
+              <p className="text-gray-600">Twoja satysfakcja i bezpieczeństwo to nasze priorytety</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
