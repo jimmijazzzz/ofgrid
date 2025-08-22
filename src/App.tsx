@@ -7,6 +7,7 @@ import WindEnergySection from './components/WindEnergySection';
 import SolarEnergySection from './components/SolarEnergySection';
 import ProjectsSection from './components/ProjectsSection';
 import GrantsSection from './components/GrantsSection';
+import CalculatorSection from './components/CalculatorSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
@@ -32,6 +33,7 @@ function App() {
       <SolarEnergySection />
       <ProjectsSection />
       <GrantsSection />
+      <CalculatorSection id="calculator" />
       <ContactSection />
       <Footer />
     </div>
