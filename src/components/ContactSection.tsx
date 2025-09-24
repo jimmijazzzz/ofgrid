@@ -149,7 +149,7 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-green-500 mr-3" />
-                  <span>++48 511 417 258</span>
+                  <span>+48 506 628 898</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-green-500 mr-3" />
